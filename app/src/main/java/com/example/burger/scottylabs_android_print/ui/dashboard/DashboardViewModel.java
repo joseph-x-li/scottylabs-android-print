@@ -16,26 +16,24 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class DashboardViewModel extends ViewModel {
-
-    private MutableLiveData<String> mText;
     private boolean isJoseph = true;
+    private MutableLiveData<String> mText;
 
     public DashboardViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
-    }
-
-    public void onPress(View v){
-        TextView view = (TextView) findViewById(R.id.retardName);
-        if(isJoseph){
-            view.setText("Adam Wang");
-        } else {
-            view.setText("Joseph Li");
-        }
-        isJoseph = !isJoseph;
+            mText = new MutableLiveData<>();
     }
 
     public LiveData<String> getText() {
         return mText;
     }
+
+    public void buttPress(){
+        if (isJoseph) {
+            mText.setValue("Adam Wang");
+        } else {
+            mText.setValue("Joseph Li");
+        }
+        isJoseph = !isJoseph;
+    }
+
 }
